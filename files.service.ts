@@ -121,7 +121,7 @@ export class FilesService {
   }
 
   async findOne(id: string, user: any) {
-    let fileRecord = await this.fileRepository.findOne({ $or: [{ id }] });
+    let fileRecord = await this.fileRepository.findOne({ $or: [{ id }] }, { fields: ["id", "filename", "file_type", "path"]});
     let res = await this.s3Client.getSignedUrlPromise("getObject", {
       Bucket: process.env.AWS_BUCKET_NAME,
       Key: fileRecord.path,
