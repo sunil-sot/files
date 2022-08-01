@@ -137,7 +137,7 @@ export class FilesService {
         entityName: fileRecord.filename+"."+fileRecord.file_type,
         operationType: operationType.VIEW,
         valueBefore: null,
-        valueAfter: res,
+        valueAfter: {url: res},
         ref: {},
         owner: user.id,
         org: user.org.id,
